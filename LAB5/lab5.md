@@ -34,11 +34,11 @@ openssl req -new -x509 -keyout ca.key -out ca.crt -config openssl.cnf
 **Information Provided:**
 
 - Country Name: BD (Bangladesh)
-- State/Province: Sylhet
-- Locality: Sylhet
-- Organization: SUST_IICT
-- Common Name: [CA Name]
-- Password: [Set for CA key protection]
+- State/Province: DHAKA
+- Locality: DHAKA
+- Organization: 
+- Common Name: example.com
+- Password: 987654321
 
 ### Creating Certificate for example.com
 
@@ -59,14 +59,14 @@ openssl req -new -key webserverlab.key -out webserverlab.csr -config openssl.cnf
 **CSR Information:**
 
 - Country Name: BD
-- State/Province: Sylhet
-- Locality: Sylhet
-- Organization: SUST_IICT
-- Organizational Unit: section
-- Common Name: webserverlab.com
-- Email Address: admin@webserverlab.com
-- Challenge Password: 1234
-- Optional Company Name: webserverlab.com
+- State/Province: DHAKA
+- Locality: DHAKA
+- Organization: 
+- Organizational Unit: 
+- Common Name: example.com
+- Email Address: kaykobadhossaintanjil01@gmail.com
+- Challenge Password: 987654321
+- Optional Company Name: 
 
 **Step 3: Sign Certificate with CA**
 
@@ -185,17 +185,20 @@ The HTTPS connection works as follows:
 
 **Process:**
 
+![alt text](images/image.png)
+
 The same procedure was followed for `webserverlab.com`:
 
-1. Generated RSA key pair: `webserverlab.key`
-2. Created CSR with Common Name: `webserverlab.com`
-3. Signed certificate with CA: `webserverlab.crt`
-4. Combined key and certificate into `webserverlab.pem`
+1. Generated RSA key pair: `keyfile ca.key`
+2. Created CSR with Common Name: `example.com`
+3. Signed certificate with CA: `ca.crt`
+4. Combined key and certificate into `server.pem`
 5. Launched OpenSSL server with the certificate
-6. Accessed via `https://webserverlab.com:4433`
+6. Accessed via `https://example.com:4433`
 
 **Screenshot: HTTPS via webserverlab.com**
-![HTTPS webserverlab.com](./Assets/https_webserverlab_preview.png)
+![alt text](<images/Screenshot from 2025-11-20 23-48-18.png>)
+![alt text](<images/Screenshot from 2025-11-20 23-48-12.png>)
 
 **Observations:**
 
